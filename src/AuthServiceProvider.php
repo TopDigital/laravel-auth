@@ -4,7 +4,7 @@ namespace Topdigital\Auth;
 
 use Illuminate\Support\ServiceProvider;
 
-class UserServiceProvider extends ServiceProvider
+class AuthServiceProvider extends ServiceProvider
 {
     public function boot()
     {
