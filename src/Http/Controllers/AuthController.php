@@ -1,6 +1,6 @@
 <?php
 
-namespace TopDigital\Auth\Http\Controllers\API;
+namespace TopDigital\Auth\Http\Controllers;
 
 use Hash;
 use Auth;

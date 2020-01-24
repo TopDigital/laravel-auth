@@ -15,7 +15,7 @@ class UserResource extends JsonResource
             'email_verified_at' => $this->created_at->format('U'),
             'created_at' => $this->created_at->format('U'),
             'updated_at' => $this->updated_at->format('U'),
-            'deleted_at' => $this->deleted_at->format('U'),
+            'deleted_at' => $this->deleted_at ? $this->deleted_at->format('U') : null,
         ];
     }
 }
