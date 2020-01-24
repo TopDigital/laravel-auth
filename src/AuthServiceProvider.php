@@ -14,5 +14,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->loadFactoriesFrom(__DIR__.'/../database/factories');
 
         Passport::routes();
+
+        if ($this->app->runningInConsole()) {
+
+            $this->commands([
+                Console\SecretCommand::class,
+            ]);
+        }
     }
 }
