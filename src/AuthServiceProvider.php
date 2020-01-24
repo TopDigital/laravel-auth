@@ -1,9 +1,10 @@
 <?php
 
-namespace Topdigital\Auth;
+namespace TopDigital\Auth;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
+use TopDigital\Auth\Console\SecretCommand;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,7 @@ class AuthServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->commands([
-                Console\SecretCommand::class,
+                SecretCommand::class,
             ]);
         }
     }
