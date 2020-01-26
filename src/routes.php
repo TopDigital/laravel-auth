@@ -19,4 +19,6 @@ Route::group([
     Route::get('/user', 'AuthController@view');
     Route::get('/user/logout', 'AuthController@logout');
     Route::put('/user/change-password', 'AuthController@changePassword');
+
+    Route::resource('users', 'UsersController')->only(['index', 'store', 'update', 'destroy']);
 });

@@ -6,7 +6,6 @@ use Hash;
 use Auth;
 
 use TopDigital\Auth\Models\User;
-
 use TopDigital\Auth\Helpers\PasswordHelper;
 use TopDigital\Auth\Helpers\AuthTokenHelper;
 
@@ -14,17 +13,11 @@ use TopDigital\Auth\Http\Requests\LoginRequest;
 use TopDigital\Auth\Http\Requests\ChangePasswordRequest;
 use TopDigital\Auth\Http\Resources\UserResource;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     public function login(LoginRequest $request) : JsonResponse
     {
         if (
