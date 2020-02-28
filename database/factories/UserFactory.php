@@ -18,10 +18,14 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(\TopDigital\Auth\Models\User::class, function (Faker $faker) {
+    $email = $faker->unique()->safeEmail;
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'login' => $email,
+        'email' => $email,
         'email_verified_at' => now(),
+        'phone' => $faker->e164PhoneNumber,
+        'phone_verified_at' => now(),
         'password' => 'qwe123', // password
         'remember_token' => Str::random(10),
     ];

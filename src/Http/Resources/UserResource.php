@@ -11,8 +11,11 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'login' => $this->login,
             'email' => $this->email,
-            'email_verified_at' => $this->created_at->format('U'),
+            'phone' => $this->phone,
+            'email_verified_at' => $this->email_verified_at ? $this->email_verified_at->format('U') : null,
+            'phone_verified_at' => $this->phone_verified_at ? $this->phone_verified_at->format('U') : null,
             'created_at' => $this->created_at->format('U'),
             'updated_at' => $this->updated_at->format('U'),
             'deleted_at' => $this->deleted_at ? $this->deleted_at->format('U') : null,

@@ -20,8 +20,9 @@ class AuthController extends BaseController
 {
     public function login(LoginRequest $request) : JsonResponse
     {
+        $user = new User;
         if (
-            !($user = User::where('email', $request->input('email'))->first()) ||
+            !($user = $user->findForPassport($request->input('login'))) ||
             !PasswordHelper::checkPassword($request->input('password'), $user)
         ) {
             return response()->json([
@@ -48,7 +49,9 @@ class AuthController extends BaseController
 
     public function changePassword(ChangePasswordRequest $request, ?User $user)
     {
-        $user = !!$user ? $user : Auth::user();
+        if(!$user){
+            $user = Auth::user();
+        }
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
