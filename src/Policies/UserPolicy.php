@@ -12,32 +12,26 @@ class UserPolicy
 
     public function index(?User $user) : bool
     {
-        return $this->checkMainPolicy($user);
+        return $user->can('view users');
     }
 
     public function view(?User $user) : bool
     {
-        return $this->checkMainPolicy($user);
+        return $user->can('view users');
     }
 
     public function create(?User $user) : bool
     {
-        return $this->checkMainPolicy($user);
+        return $user->can('create user');
     }
 
     public function update(?User $user, User $updatedUser) : bool
     {
-        return $this->checkMainPolicy($user);
+        return $user->can('update user') || $user->getAuthIdentifier() === $updatedUser->getAuthIdentifier();
     }
 
     public function delete(?User $user, User $deletedUser) : bool
     {
-        return $this->checkMainPolicy($user);
-    }
-
-    public function checkMainPolicy(?User $user) : bool
-    {
-//        return !!$user && $user->isAdmin();
-        return true;
+        return $user->can('delete user');
     }
 }
