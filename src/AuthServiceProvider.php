@@ -4,6 +4,7 @@ namespace TopDigital\Auth;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
+use TopDigital\Auth\Console\InitPermissionsCommand;
 use TopDigital\Auth\Console\SecretCommand;
 use TopDigital\Auth\Models\User;
 use TopDigital\Auth\Policies\UserPolicy;
@@ -24,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
 
             $this->commands([
                 SecretCommand::class,
+                InitPermissionsCommand::class,
             ]);
         }
     }
