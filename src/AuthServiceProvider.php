@@ -19,6 +19,12 @@ class AuthServiceProvider extends ServiceProvider
 
         \Gate::policy(User::class, UserPolicy::class);
 
+        \Gate::before(function (User $user, $ability) {
+            if ($user->hasRole('super-admin')) {
+                return true;
+            }
+        });
+
         Passport::routes();
 
         if ($this->app->runningInConsole()) {

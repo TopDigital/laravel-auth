@@ -19,6 +19,9 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'create user']);
         Permission::create(['name' => 'update user']);
         Permission::create(['name' => 'delete user']);
+        Permission::create(['name' => 'set role']);
+
+        Role::create(['name' => 'super-admin']);
 
         Role::create(['name' => 'admin'])
             ->givePermissionTo([
@@ -26,6 +29,14 @@ class PermissionsTableSeeder extends Seeder
                 'create user',
                 'update user',
                 'delete user',
+                'set role',
             ]);
+
+        Role::create(['name' => 'manager'])
+            ->givePermissionTo([
+                'view users',
+            ]);
+
+        Role::create(['name' => 'app-user']);
     }
 }
