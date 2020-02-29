@@ -27,7 +27,8 @@
     },
     "autoload": {
         "psr-4": {
-            "TopDigital\\Auth\\": "src/"
+            "TopDigital\\Auth\\": "src/",
+            "TopDigital\\Auth\\Seeders\\": "database/seeds/"
         }
     }
 }

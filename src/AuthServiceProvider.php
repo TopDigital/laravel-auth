@@ -25,7 +25,6 @@ class AuthServiceProvider extends ServiceProvider
 
             $this->commands([
                 SecretCommand::class,
-                InitPermissionsCommand::class,
             ]);
         }
     }

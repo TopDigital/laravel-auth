@@ -1,33 +1,19 @@
 <?php
 
-namespace TopDigital\Auth\Console;
+namespace TopDigital\Auth\Seeders;
 
-use Illuminate\Console\Command;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class InitPermissionsCommand extends Command
+class PermissionsTableSeeder extends Seeder
 {
     /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'permissions:init';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Initialize permissions';
-
-    /**
-     * Execute the console command.
+     * Seed the application's database.
      *
      * @return void
      */
-    public function handle()
+    public function run()
     {
         Permission::create(['name' => 'view users']);
         Permission::create(['name' => 'create user']);
