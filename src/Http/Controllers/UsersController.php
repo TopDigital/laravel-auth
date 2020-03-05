@@ -39,6 +39,8 @@ class UsersController extends BaseController
         $user->password = Str::random(10);
         $user->save();
 
+        $user->assignRole('manager');
+
         return response(
             UserResource::make($user)
         );
