@@ -1,7 +1,5 @@
 # Быстро-настраиваемая авторизация в Laravel-проектах, на базе Passport
 
-Включает в себя простейший CORS с разрешением на любые кросс-доменные запросы (при желании легко переопределяется по образу и подобию). Подходит для быстрого старта разработки проектов с фронтендом на React/Vue на локальной машине.
-
 ### Добавляем пакет авторизации
 
 ```bash
@@ -46,20 +44,11 @@ $ composer require topdigital/laravel-auth
 ### Добавляем middleware
 
 В `App\Http\Kernel`:
-```php
-    protected $middlewareGroups = [
-//...
-        'api' => [
-//...
-            \TopDigital\Auth\Http\Middleware\Cors::class,
-        ],
-```
 
 ```php
     protected $routeMiddleware = [
 //...
         'oauth.check-client' => \TopDigital\Auth\Http\Middleware\CheckOAuthClient::class,
-        'cors' => \TopDigital\Auth\Http\Middleware\Cors::class,
     ],
 ```
 

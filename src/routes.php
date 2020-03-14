@@ -2,7 +2,7 @@
 
 Route::group([
     'namespace' => 'TopDigital\Auth\Http\Controllers',
-    'middleware' => ['api', 'cors'],
+    'middleware' => ['api'],
     'prefix' => 'api'
 ], function () {
     Route::options('{all}', function(){})->where('all', '.*');
@@ -12,7 +12,7 @@ Route::group([
 
 Route::group([
     'namespace' => 'TopDigital\Auth\Http\Controllers',
-    'middleware' => ['api', 'cors', 'auth:api'],
+    'middleware' => ['api', 'auth:api'],
     'prefix' => 'api'
 ], function () {
 
